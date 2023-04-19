@@ -71,6 +71,10 @@ int tempo = 144;
 
 // indicates buzzer pin
 int trumpet_buzzer = 13;
+int cords_buzzer = 12;
+int bass_buzzer = 11;
+int melody_buzzer = 10;
+
 
 // notes’ pitch, duration of note
 // 1 means whole note, 4 a quarter note, 8 an eighteenth note, 16 sixteenth note
