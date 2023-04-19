@@ -90,14 +90,8 @@ int trumpet_melody[] = {
   // Safe and Sound   
   REST, WHOLE_NOTE, REST, WHOLE_NOTE,
   REST, WHOLE_NOTE, REST, WHOLE_NOTE, REST, 4,
-  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4
-  A3, 8, A3, 8, A3, 8
-  A4, -2,
-  G4, -4, AS4, 8, A4, 4,
-  F4, 2, GS4, 4,
-  D4, -1, 
-  D4, 4,
-
+  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4,
+  A3, 8, A3, 8, A3, 8,
    
 };
 
@@ -107,13 +101,7 @@ int cords_melody[] = {
   // Safe and Sound   
   REST, WHOLE_NOTE, REST, WHOLE_NOTE,
   REST, WHOLE_NOTE, REST, WHOLE_NOTE, REST, 4,
-  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4
-  A3, 8, A3, 8, A3, 8
-  A4, -2,
-  G4, -4, AS4, 8, A4, 4,
-  F4, 2, GS4, 4,
-  D4, -1, 
-  D4, 4,
+  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4,
 
 };
 
@@ -122,15 +110,10 @@ int bass_melody[] = {
 
   // Safe and Sound   
   REST, WHOLE_NOTE, REST, WHOLE_NOTE,
-  REST, WHOLE_NOTE, REST, WHOLE_NOTE, REST, 4,
-  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4
-  A3, 8, A3, 8, A3, 8
-  A4, -2,
-  G4, -4, AS4, 8, A4, 4,
-  F4, 2, GS4, 4,
-  D4, -1, 
-  D4, 4,
-
+  REST, WHOLE_NOTE, REST, WHOLE_NOTE, 
+  REST, 4, D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, 
+  REST, 4, REST, 4, REST, 4,
+  A3, 8, A3, 8, A3, 8,
    
 };
 
@@ -140,13 +123,7 @@ int melody[] = {
   // Safe and Sound   
   REST, WHOLE_NOTE, REST, WHOLE_NOTE,
   REST, WHOLE_NOTE, REST, WHOLE_NOTE, REST, 4,
-  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4
-  A3, 8, A3, 8, A3, 8
-  A4, -2,
-  G4, -4, AS4, 8, A4, 4,
-  F4, 2, GS4, 4,
-  D4, -1, 
-  D4, 4,
+  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4,
 
    
 };
