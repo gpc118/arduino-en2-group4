@@ -88,10 +88,60 @@ int trumpet_melody[] = {
 
 
   // Safe and Sound   
-  REST, 2, D4, 4,
+  REST, WHOLE_NOTE, REST, WHOLE_NOTE,
+  REST, WHOLE_NOTE, REST, WHOLE_NOTE, REST, 4,
+  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4
+  A3, 8, A3, 8, A3, 8
+  A4, -2,
   G4, -4, AS4, 8, A4, 4,
-  G4, 2, D5, 4,
-  C5, -2, 
+  F4, 2, GS4, 4,
+  D4, -1, 
+  D4, 4,
+
+   
+};
+
+int cords_melody[] = {
+
+
+  // Safe and Sound   
+  REST, WHOLE_NOTE, REST, WHOLE_NOTE,
+  REST, WHOLE_NOTE, REST, WHOLE_NOTE, REST, 4,
+  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4
+  A3, 8, A3, 8, A3, 8
+  A4, -2,
+  G4, -4, AS4, 8, A4, 4,
+  F4, 2, GS4, 4,
+  D4, -1, 
+  D4, 4,
+
+};
+
+int bass_melody[] = {
+
+
+  // Safe and Sound   
+  REST, WHOLE_NOTE, REST, WHOLE_NOTE,
+  REST, WHOLE_NOTE, REST, WHOLE_NOTE, REST, 4,
+  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4
+  A3, 8, A3, 8, A3, 8
+  A4, -2,
+  G4, -4, AS4, 8, A4, 4,
+  F4, 2, GS4, 4,
+  D4, -1, 
+  D4, 4,
+
+   
+};
+
+int melody[] = {
+
+
+  // Safe and Sound   
+  REST, WHOLE_NOTE, REST, WHOLE_NOTE,
+  REST, WHOLE_NOTE, REST, WHOLE_NOTE, REST, 4,
+  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4
+  A3, 8, A3, 8, A3, 8
   A4, -2,
   G4, -4, AS4, 8, A4, 4,
   F4, 2, GS4, 4,
@@ -135,17 +185,83 @@ void setup() {
     // stop the waveform generation before the next note.
     noTone(trumpet_buzzer);
   }
+//cords part
+ // iterate over the notes of the melody. 
+  // Remember, the array is twice the number of notes (notes + durations)
+  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+
+    // calculates the duration of each note
+    divider = cords_melody[thisNote + 1];
+    if (divider > 0) {
+      // regular note, just proceed
+      noteDuration = (WHOLE_NOTE) / divider;
+    } else if (divider < 0) {
+      // dotted notes are represented with negative durations!!
+      noteDuration = (WHOLE_NOTE) / abs(divider);
+      noteDuration *= 1.5; // increases the duration in half for dotted notes
+    }
+
+    // Plays notes for 90% of the duration, and gives 10% leeway (this resolves the resonance of the piazza buzzer
+    tone(cords_buzzer, cords_melody[thisNote], noteDuration*0.9);
+
+    // Wait for the specify the duration of the note before playing the next note.
+    delay(noteDuration);
+    
+    // stop the waveform generation before the next note.
+    noTone(cords_buzzer);
+  }
+//bass part
+ // iterate over the notes of the melody. 
+  // Remember, the array is twice the number of notes (notes + durations)
+  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+
+    // calculates the duration of each note
+    divider = trumpet_melody[thisNote + 1];
+    if (divider > 0) {
+      // regular note, just proceed
+      noteDuration = (WHOLE_NOTE) / divider;
+    } else if (divider < 0) {
+      // dotted notes are represented with negative durations!!
+      noteDuration = (WHOLE_NOTE) / abs(divider);
+      noteDuration *= 1.5; // increases the duration in half for dotted notes
+    }
+
+    // Plays notes for 90% of the duration, and gives 10% leeway (this resolves the resonance of the piazza buzzer
+    tone(bass_buzzer, bass_melody[thisNote], noteDuration*0.9);
+
+    // Wait for the specify the duration of the note before playing the next note.
+    delay(noteDuration);
+    
+    // stop the waveform generation before the next note.
+    noTone(bass_buzzer);
+  }
+//melody
+ // iterate over the notes of the melody. 
+  // Remember, the array is twice the number of notes (notes + durations)
+  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+
+    // calculates the duration of each note
+    divider = melody[thisNote + 1];
+    if (divider > 0) {
+      // regular note, just proceed
+      noteDuration = (WHOLE_NOTE) / divider;
+    } else if (divider < 0) {
+      // dotted notes are represented with negative durations!!
+      noteDuration = (WHOLE_NOTE) / abs(divider);
+      noteDuration *= 1.5; // increases the duration in half for dotted notes
+    }
+
+    // Plays notes for 90% of the duration, and gives 10% leeway (this resolves the resonance of the piazza buzzer
+    tone(melody_buzzer, melody[thisNote], noteDuration*0.9);
+
+    // Wait for the specify the duration of the note before playing the next note.
+    delay(noteDuration);
+    
+    // stop the waveform generation before the next note.
+    noTone(melody_buzzer);
+  }
+
 }
-
-//void setup() {
- // Shawn code
- //int tempo = 144
-  // Anthony code section
-  //int C4 = 262;
-  // Shawn code section
-  //int D4 = 330;
-
-//}
 
 void loop() {
   // put function below to repeat it
