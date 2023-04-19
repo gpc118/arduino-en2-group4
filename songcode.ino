@@ -64,17 +64,89 @@
 #define NOTE_A1
 #define NOTE_G1
 
+// this alters the speed of the array 
+//this variable is connected to the void setup if-then statements
+
+int tempo = 144;
+
+// indicates buzzer pin
+int trumpet_buzzer = 13;
+
+// notes’ pitch, duration of note
+// 1 means whole note, 4 a quarter note, 8 an eighteenth note, 16 sixteenth note
+// IMPORTANT NOTICE: negative numbers in the array refer to dotted notes
+// Example: -4 means a dotted quarter note, or -8 dotted eighteenth note
+
+int WHOLE_NOTE = 1;
+int HALF_NOTE = 2;
+int QUARTER_NOTE = 4;
+int EIGHTH_NOTE = 8;
+int SIXTEENTH_NOTE = 16;
+
+
+int trumpet_melody[] = {
+
+
+  // Safe and Sound   
+  REST, 2, D4, 4,
+  G4, -4, AS4, 8, A4, 4,
+  G4, 2, D5, 4,
+  C5, -2, 
+  A4, -2,
+  G4, -4, AS4, 8, A4, 4,
+  F4, 2, GS4, 4,
+  D4, -1, 
+  D4, 4,
+
+   
+};
+
+// sizeof gives the number of bytes, each int value is composed of two bytes (16 bits)
+// there are two values per note (pitch and duration), so for each note there are four bytes
+int notes = sizeof(trumpet_melody) / sizeof(trumpet_melody[0]) / 2;
+
+// this calculates the duration of a whole note in ms (60s/tempo)*4 beats
+int wholenote = (60000 * 4) / tempo;
+
+int divider = 0, noteDuration = 0;
 
 void setup() {
- // Shawn code
- int tempo = 144
-  // Anthony code section
-  int C4 = 262;
-  // Shawn code section
-  int D4 = 330;
+  // iterate over the notes of the melody. 
+  // Remember, the array is twice the number of notes (notes + durations)
+  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
 
+    // calculates the duration of each note
+    divider = trumpet_melody[thisNote + 1];
+    if (divider > 0) {
+      // regular note, just proceed
+      noteDuration = (WHOLE_NOTE) / divider;
+    } else if (divider < 0) {
+      // dotted notes are represented with negative durations!!
+      noteDuration = (WHOLE_NOTE) / abs(divider);
+      noteDuration *= 1.5; // increases the duration in half for dotted notes
+    }
+
+    // Plays notes for 90% of the duration, and gives 10% leeway (this resolves the resonance of the piazza buzzer
+    tone(trumpet_buzzer, trumpet_melody[thisNote], noteDuration*0.9);
+
+    // Wait for the specify the duration of the note before playing the next note.
+    delay(noteDuration);
+    
+    // stop the waveform generation before the next note.
+    noTone(trumpet_buzzer);
+  }
 }
 
-void loop() {
+//void setup() {
+ // Shawn code
+ //int tempo = 144
+  // Anthony code section
+  //int C4 = 262;
+  // Shawn code section
+  //int D4 = 330;
 
+//}
+
+void loop() {
+  // put function below to repeat it
 }
