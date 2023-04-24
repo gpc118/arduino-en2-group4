@@ -1,5 +1,5 @@
 /* 
-  Safe and Sound - ARTIST NAME                                     
+  Safe and Sound - Capital City                                    
                                               
   EPICS Group 4, 2023
   Max, Shawn, Anthony, & Carlos
@@ -31,7 +31,7 @@
 #define B3  247
 #define C4  262
 #define CS4 277
-#define D4  294
+#define d4  294
 #define DS4 311
 #define E4  330
 #define F4  349
@@ -56,18 +56,11 @@
 #define C6  1047
 #define REST 0
 
-
-
-// Notes
-#define NOTE_F1
-#define NOTE_C1
-#define NOTE_A1
-#define NOTE_G1
-
 // this alters the speed of the array 
 //this variable is connected to the void setup if-then statements
 
-int tempo = 144;
+int tempo = 118;
+
 
 // indicates buzzer pin
 int trumpet_buzzer = 13;
@@ -87,49 +80,108 @@ int QUARTER_NOTE = 4;
 int EIGHTH_NOTE = 8;
 int SIXTEENTH_NOTE = 16;
 
+int trumpet-melody[] = {
+  // Safe and Sound   
+  C4, 8, C4, 8, C4, 8, REST, 8, 
+  E4, 8, E4, 8, REST, 2, REST, 4,
+  G4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, C4, 8, 
+  C4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, E4, 8, 
+  F4, 8, E4, 8, REST, 4, 
+  //loop this part to fill melody
+  C4, 8, C4, 8, C4, 8, REST, 8, 
+  E4, 8, E4, 8, REST, 2, REST, 4,
+  G4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, C4, 8, 
+  C4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, E4, 8, 
+  F4, 8, E4, 8,
+  //trumpet enters
+  E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8, B3, 8, C4, 8, d4, 8, 
+  REST, 8, E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8,
+  G4, 8, F4, 8, E4, 8, REST, 4, REST, 8,
+  // Safe and Sound   
+  C4, 8, C4, 8, C4, 8, REST, 8, 
+  E4, 8, E4, 8, REST, 2, REST, 4,
+  G4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, C4, 8, 
+  C4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, E4, 8, 
+  F4, 8, E4, 8, REST, 4, 
+  //loop this part to fill melody
+  C4, 8, C4, 8, C4, 8, REST, 8, 
+  E4, 8, E4, 8, REST, 2, REST, 4,
+  G4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, C4, 8, 
+  C4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, E4, 8, 
+  F4, 8, E4, 8, 
+  //trumpet enters
+  E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8, B3, 8, C4, 8, d4, 8, 
+  REST, 8, E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8,
+  G4, 8, F4, 8, E4, 8, REST, 4, 
+
+};
+
 
 int trumpet_melody[] = {
 
 
-  // Safe and Sound   
-  REST, WHOLE_NOTE, REST, WHOLE_NOTE,
-  REST, WHOLE_NOTE, REST, WHOLE_NOTE, REST, 4,
-  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4,
-  A3, 8, A3, 8, A3, 8,
-   
+ REST, 16, E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8, B3, 8, C4, 8, d4, 8, 
+  REST, 8, E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8,
+  G4, 8, F4, 8, E4, 8,
+
+
+
 };
 
 int cords_melody[] = {
 
+E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8, B3, 8, C4, 8, d4, 8, 
+  REST, 8, E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8,
+  G4, 8, F4, 8, E4, 8, REST, 4, 
 
-  // Safe and Sound   
-  REST, WHOLE_NOTE, REST, WHOLE_NOTE,
-  REST, WHOLE_NOTE, REST, WHOLE_NOTE, REST, 4,
-  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4,
 
 };
 
 int bass_melody[] = {
 
-
-  // Safe and Sound   
-  REST, WHOLE_NOTE, REST, WHOLE_NOTE,
-  REST, WHOLE_NOTE, REST, WHOLE_NOTE, 
-  REST, 4, D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, 
-  REST, 4, REST, 4, REST, 4,
-  A3, 8, A3, 8, A3, 8,
+ E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8, B3, 8, C4, 8, d4, 8, 
+  REST, 8, E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8,
+  G4, 8, F4, 8, E4, 8, REST, 4, 
    
 };
 
 int melody[] = {
+//melody notes
+ C4, 8, C4, 8, C4, 8, REST, 8, 
+  E4, 8, E4, 8, REST, 2, REST, 4,
+  G4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, C4, 8, 
+  C4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, E4, 8, 
+  F4, 8, E4, 8, REST, 4, 
+  //loop this part to fill melody
+  C4, 8, C4, 8, C4, 8, REST, 8, 
+  E4, 8, E4, 8, REST, 2, REST, 4,
+  G4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, C4, 8, 
+  C4, 8, G4, 8, G4, 8, E4, 8, 
+  E4, 8, d4, 8, d4, 8, E4, 8, 
+  F4, 8, E4, 8, REST, 4, 
+  //trumpet enters
 
-
-  // Safe and Sound   
-  REST, WHOLE_NOTE, REST, WHOLE_NOTE,
-  REST, WHOLE_NOTE, REST, WHOLE_NOTE, REST, 4,
-  D4, 8, D4, 8, D4, 8, FS3, 8, FS3, 8, REST, 4, REST, 4, REST, 4,
-
-   
 };
 
 // sizeof gives the number of bytes, each int value is composed of two bytes (16 bits)
@@ -147,18 +199,18 @@ void setup() {
   for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
 
     // calculates the duration of each note
-    divider = trumpet_melody[thisNote + 1];
+    divider = trumpet-melody[thisNote + 1];
     if (divider > 0) {
       // regular note, just proceed
-      noteDuration = (WHOLE_NOTE) / divider;
+      noteDuration = (wholenote) / divider;
     } else if (divider < 0) {
       // dotted notes are represented with negative durations!!
-      noteDuration = (WHOLE_NOTE) / abs(divider);
+      noteDuration = (wholenote) / abs(divider);
       noteDuration *= 1.5; // increases the duration in half for dotted notes
     }
 
     // Plays notes for 90% of the duration, and gives 10% leeway (this resolves the resonance of the piazza buzzer
-    tone(trumpet_buzzer, trumpet_melody[thisNote], noteDuration*0.9);
+    tone(trumpet_buzzer, trumpet-melody[thisNote], noteDuration*0.9);
 
     // Wait for the specify the duration of the note before playing the next note.
     delay(noteDuration);
@@ -175,10 +227,10 @@ void setup() {
     divider = cords_melody[thisNote + 1];
     if (divider > 0) {
       // regular note, just proceed
-      noteDuration = (WHOLE_NOTE) / divider;
+      noteDuration = (wholenote) / divider;
     } else if (divider < 0) {
       // dotted notes are represented with negative durations!!
-      noteDuration = (WHOLE_NOTE) / abs(divider);
+      noteDuration = (wholenote) / abs(divider);
       noteDuration *= 1.5; // increases the duration in half for dotted notes
     }
 
@@ -200,10 +252,10 @@ void setup() {
     divider = trumpet_melody[thisNote + 1];
     if (divider > 0) {
       // regular note, just proceed
-      noteDuration = (WHOLE_NOTE) / divider;
+      noteDuration = (wholenote) / divider;
     } else if (divider < 0) {
       // dotted notes are represented with negative durations!!
-      noteDuration = (WHOLE_NOTE) / abs(divider);
+      noteDuration = (wholenote) / abs(divider);
       noteDuration *= 1.5; // increases the duration in half for dotted notes
     }
 
@@ -225,10 +277,10 @@ void setup() {
     divider = melody[thisNote + 1];
     if (divider > 0) {
       // regular note, just proceed
-      noteDuration = (WHOLE_NOTE) / divider;
+      noteDuration = (wholenote) / divider;
     } else if (divider < 0) {
       // dotted notes are represented with negative durations!!
-      noteDuration = (WHOLE_NOTE) / abs(divider);
+      noteDuration = (wholenote) / abs(divider);
       noteDuration *= 1.5; // increases the duration in half for dotted notes
     }
 
@@ -247,3 +299,4 @@ void setup() {
 void loop() {
   // put function below to repeat it
 }
+
