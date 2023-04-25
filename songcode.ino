@@ -80,7 +80,7 @@ int QUARTER_NOTE = 4;
 int EIGHTH_NOTE = 8;
 int SIXTEENTH_NOTE = 16;
 
-int trumpet-melody[] = {
+int trumpetMelody[] = {
   // Safe and Sound   
   C4, 8, C4, 8, C4, 8, REST, 8, 
   E4, 8, E4, 8, REST, 2, REST, 4,
@@ -144,7 +144,7 @@ int trumpet_melody[] = {
 
 int cords_melody[] = {
 
-E4, 4, A3, 4, B3, 8, C4, 8, 
+  E4, 4, A3, 4, B3, 8, C4, 8, 
   d4, 8, E4, 4, G3, 8, REST, 8, G3, 8, B3, 8, C4, 8, d4, 8, 
   REST, 8, E4, 4, A3, 4, B3, 8, C4, 8, 
   d4, 8, E4, 4, G3, 8, REST, 8, G3, 8,
@@ -155,15 +155,12 @@ E4, 4, A3, 4, B3, 8, C4, 8,
 
 int bass_melody[] = {
 
-   F2, 8, A2, 8, F2, 8, A2, 8,
-  F2, 8, A2, 8, F2, 8, A2, 8,
-  C2, 8, E2, 8, C2, 8, E2, 8,
-  C2, 8, E2, 8, C2, 8, E2, 8,
-  A1, 8, C2, 8, A1, 8, C2, 8,
-  A1, 8, C2, 8, A1, 8, C2, 8,
-  G1, 8, B1, 8, G1, 8, B1, 8,
-  G1, 8, B1, 8, G1, 8, B1, 8,
-
+  F2, 8, A2, 8, 
+  E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8, B3, 8, C4, 8, d4, 8, 
+  REST, 8, E4, 4, A3, 4, B3, 8, C4, 8, 
+  d4, 8, E4, 4, G3, 8, REST, 8, G3, 8,
+  G4, 8, F4, 8, E4, 8, REST, 4, 
    
 };
 
@@ -203,7 +200,7 @@ void setup() {
   for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
 
     // calculates the duration of each note
-    divider = trumpet-melody[thisNote + 1];
+    divider = trumpetMelody[thisNote + 1];
     if (divider > 0) {
       // regular note, just proceed
       noteDuration = (wholenote) / divider;
@@ -214,7 +211,7 @@ void setup() {
     }
 
     // Plays notes for 90% of the duration, and gives 10% leeway (this resolves the resonance of the piazza buzzer
-    tone(trumpet_buzzer, trumpet-melody[thisNote], noteDuration*0.9);
+    tone(trumpet_buzzer, trumpetMelody[thisNote], noteDuration*0.9);
 
     // Wait for the specify the duration of the note before playing the next note.
     delay(noteDuration);
